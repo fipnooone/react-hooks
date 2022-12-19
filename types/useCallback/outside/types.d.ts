@@ -4,4 +4,4 @@ interface UseOutside {
     <T extends HTMLElement>(ref: RefObject<T>, callback: Callback, deps?: DependencyList): void;
     <T extends HTMLElement[]>(refs: RefObject<T>[], callback: Callback, deps?: DependencyList): void;
 }
-export type { Callback, DependencyList, UseOutside };
+export type { Callback, UseOutside };

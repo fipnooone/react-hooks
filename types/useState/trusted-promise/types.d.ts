@@ -1,6 +1,6 @@
 import { StateValue } from '../../types';
 export interface ISet<T> {
-    (value: StateValue<T>): Promise<T>;
+    (value: StateValue<T>, isTrusted?: boolean): Promise<T>;
 }
 export interface UseState {
     <T>(initialValue: T, initialTrust?: boolean): [T, ISet<T>, boolean];

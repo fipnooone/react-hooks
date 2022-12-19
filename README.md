@@ -110,7 +110,7 @@ useEvents(
 ### useRefEffect
 
 ```typescript
-useRefEffect(() => {}, ref, [dep]);
+useRefEffect((T) => {}, ref<T>, [dep]);
 ```
 
 ### useEvents
