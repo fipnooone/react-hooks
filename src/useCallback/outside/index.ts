@@ -1,7 +1,7 @@
-import { RefObject } from 'react';
+import { DependencyList, RefObject } from 'react';
 
 import { useEvents } from '../events';
-import { Callback, DependencyList, UseOutside } from './types';
+import { Callback, UseOutside } from './types';
 
 const contains = (el: Element | undefined | null, target: Node) => (el ? el.contains(target) : false);
 
