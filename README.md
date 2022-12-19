@@ -46,3 +46,43 @@ const [state, setState] = useTrustedPromise<number>();
 
 const changeState = () => setState(undefined).then()
 ~~~
+## useParams
+~~~typescript
+const { id, station_slug } = useParams({ id: 'int', station_slug: 'string' });
+// id: number
+// station_slug: string
+
+// redirect is true by refault
+useParams({ }, redirect: boolean | '/url/to/a-page');
+
+const { id, station_slug } = useParams({ id: 'int', station_slug: 'string' }, false);
+// id: number | undefined
+// station_slug: string | undefined
+~~~
+## useObject
+### useObjectEffect / useObjectCallback / useObjectMemo
+~~~typescript
+const [users, setUsers] = useState<User[]>([])
+
+useObjectEffect(() => {
+    // ...
+}, [users])
+~~~
+## useCallback
+### useOutside
+~~~typescript
+useOutside(myRef, () => close(), [dep])
+~~~
+### useEvents
+~~~typescript
+useEvents(
+    'click',
+    (event) => {
+        while (true) {
+            console.log('clicked');
+        }
+    },
+    [dep0, dep1],
+    document
+);
+~~~
