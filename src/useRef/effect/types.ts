@@ -1,5 +1,6 @@
-import { Destructor } from "@/types";
-import { DependencyList, RefObject } from "react";
+import { DependencyList, RefObject } from 'react';
+
+import { Destructor } from '@/types';
 
 export type Effect<T> = (element: T) => Destructor;
 

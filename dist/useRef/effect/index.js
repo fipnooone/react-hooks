@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 export var useRefEffect = function (effect, ref, deps) {
     return useEffect(function () {
         if (!Array.isArray(ref))

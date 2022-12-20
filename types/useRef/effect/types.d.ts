@@ -1,5 +1,5 @@
-import { Destructor } from "../../types";
-import { DependencyList, RefObject } from "react";
+import { DependencyList, RefObject } from 'react';
+import { Destructor } from '../../types';
 export type Effect<T> = (element: T) => Destructor;
 export interface UseRefEffect {
     <T>(effect: (element: T) => Destructor, ref: RefObject<T>, deps: DependencyList): void;

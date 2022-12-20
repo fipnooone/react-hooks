@@ -1,4 +1,4 @@
-import { DependencyList } from "react";
+import { DependencyList } from 'react';
 
 const beautify = (str: string) => str && str.replaceAll(/\s+/g, '').replaceAll('\\', '+');
 

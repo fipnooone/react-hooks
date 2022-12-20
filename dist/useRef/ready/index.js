@@ -7,8 +7,8 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { useObjectEffect } from "../../useObject";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from 'react';
+import { useObjectEffect } from '../../useObject';
 export var useRefReady = function (callback, deps) {
     if (deps === void 0) { deps = []; }
     var _a = useState(false), isReady = _a[0], setReady = _a[1];

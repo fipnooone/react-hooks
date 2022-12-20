@@ -1,4 +1,4 @@
-import { Destructor } from "@/types";
+import { Destructor } from '@/types';
 
 export type Callback<T> = (ref: T) => Destructor;
 export interface ISetRef<T> {
