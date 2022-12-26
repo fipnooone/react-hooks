@@ -4,7 +4,7 @@ import { useObjectEffect } from '@/useObject';
 
 import { Callback, ISetRef, Ref } from './types';
 
-export const useRefReady = <T>(callback?: Callback<T>, deps: DependencyList = []) => {
+export const useRefReady = <T>(callback?: Callback<T>, deps: DependencyList = []): [Ref<T>, ISetRef<T>] => {
     const [isReady, setReady] = useState(false);
     const callbackRef = useRef<Callback<T> | null | undefined>(undefined);
     const localRef = useRef<T | null>(null);
@@ -31,4 +31,6 @@ export const useRefReady = <T>(callback?: Callback<T>, deps: DependencyList = []
 
         return cb(localRef.current);
     }, [isReady, ...deps]);
+
+    return [ref, set];
 };
