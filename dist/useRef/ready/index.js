@@ -20,7 +20,7 @@ export var useRefReady = function (callback, deps) {
         localRef.current = ref;
         setReady(true);
     };
-    var ref = useMemo(function () { return ({ current: ref.current, set: set }); }, [isReady]);
+    var ref = useMemo(function () { return ({ current: localRef.current, set: set }); }, [isReady]);
     useObjectEffect(function () {
         if (callbackRef.current === null || !callback)
             return;

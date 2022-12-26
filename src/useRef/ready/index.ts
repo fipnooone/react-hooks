@@ -17,7 +17,7 @@ export const useRefReady = <T>(callback?: Callback<T>, deps: DependencyList = []
         setReady(true);
     };
 
-    const ref: Ref<T> = useMemo(() => ({ current: ref.current, set }), [isReady]);
+    const ref: Ref<T> = useMemo(() => ({ current: localRef.current as T, set }), [isReady]);
 
     useObjectEffect(() => {
         if (callbackRef.current === null || !callback) return;
