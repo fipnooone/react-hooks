@@ -1,23 +1,34 @@
-import { DependencyList, useMemo, useRef, useState } from 'react';
+import { useState } from 'react';
+import React from 'react';
 
 import { useObjectEffect } from '@/useObject';
 
-import { Callback, ISetRef, Ref } from './types';
+import { Callback, RefObject } from './types';
 
-export const useRefReady = <T>(callback?: Callback<T>, deps: DependencyList = []): [Ref<T>, ISetRef<T>] => {
-    const [isReady, setReady] = useState(false);
-    const callbackRef = useRef<Callback<T> | null | undefined>(undefined);
-    const localRef = useRef<T | null>(null);
+class CustomRef<T> implements RefObject<T> {
+    public current: T | null;
+    private callback: () => void;
 
-    const set: ISetRef<T> = (ref) => {
+    public constructor(value: T | null = null, callback: () => void) {
+        this.current = value;
+        this.callback = callback;
+
+        return this;
+    }
+
+    public set(ref: T | null) {
         if (ref === null || ref === undefined) return;
 
-        localRef.current = ref;
+        this.current = ref;
 
-        setReady(true);
-    };
+        this.callback();
+    }
+}
 
-    const ref: Ref<T> = useMemo(() => ({ current: localRef.current as T, set }), [isReady]);
+export const useRefCallback = <T>(callback?: Callback<T>, deps = []) => {
+    const [isReady, setReady] = useState(false);
+    const callbackRef = React.useRef<Callback<T> | null | undefined>(undefined);
+    const localRef = new CustomRef<T>(null, () => setReady(true));
 
     useObjectEffect(() => {
         if (callbackRef.current === null || !callback) return;
@@ -31,6 +42,4 @@ export const useRefReady = <T>(callback?: Callback<T>, deps: DependencyList = []
 
         return cb(localRef.current);
     }, [isReady, ...deps]);
-
-    return [ref, set];
 };
