@@ -15,4 +15,3 @@ export var useCallbackState = function (initialValue) {
     }, [state]);
     return [state, set];
 };
-//# sourceMappingURL=index.js.map

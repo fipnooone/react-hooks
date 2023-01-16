@@ -17,4 +17,3 @@ export var usePromiseState = function (initialValue) {
     }, [state]);
     return [state, set];
 };
-//# sourceMappingURL=index.js.map

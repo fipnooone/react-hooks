@@ -7,4 +7,3 @@ export var useRefEffect = function (effect, ref, deps) {
             return effect(ref.map(function (r) { return r.current; }));
     }, deps);
 };
-//# sourceMappingURL=index.js.map

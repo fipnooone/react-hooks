@@ -41,4 +41,3 @@ export var useRefReady = function (callback, deps) {
         return cb(localRef.current);
     }, __spreadArray([isReady], deps, true));
 };
-//# sourceMappingURL=index.js.map

@@ -9,4 +9,3 @@ export var useOutside = function (ref, callback, deps) {
             ref.every(function (r) { return !contains(r.current, target); }) && callback();
     }, deps, document);
 };
-//# sourceMappingURL=index.js.map

@@ -22,4 +22,3 @@ export var useTrustedPromise = function (initialValue, initialTrust) {
     }, [state]);
     return [state.value, set, state.isTrusted];
 };
-//# sourceMappingURL=index.js.map

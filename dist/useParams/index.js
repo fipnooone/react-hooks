@@ -65,4 +65,3 @@ export var useParams = function (params, redirect) {
         return {};
     }
 };
-//# sourceMappingURL=index.js.map

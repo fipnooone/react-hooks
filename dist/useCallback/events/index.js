@@ -10,4 +10,3 @@ export var useEvents = function (type, callback, deps, element) {
         };
     }, deps);
 };
-//# sourceMappingURL=index.js.map

@@ -14,4 +14,3 @@ var stringify = function (deps) {
 };
 var transform = function (deps) { return deps.map(stringify); };
 export { transform };
-//# sourceMappingURL=deps.js.map
