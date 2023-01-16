@@ -7,20 +7,29 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { useMemo, useRef, useState } from 'react';
+import { useState } from 'react';
+import React from 'react';
 import { useObjectEffect } from '../../useObject';
+var CustomRef = /** @class */ (function () {
+    function CustomRef(value, callback) {
+        if (value === void 0) { value = null; }
+        this.current = value;
+        this.callback = callback;
+        return this;
+    }
+    CustomRef.prototype.set = function (ref) {
+        if (ref === null || ref === undefined)
+            return;
+        this.current = ref;
+        this.callback();
+    };
+    return CustomRef;
+}());
 export var useRefReady = function (callback, deps) {
     if (deps === void 0) { deps = []; }
     var _a = useState(false), isReady = _a[0], setReady = _a[1];
-    var callbackRef = useRef(undefined);
-    var localRef = useRef(null);
-    var set = function (ref) {
-        if (ref === null || ref === undefined)
-            return;
-        localRef.current = ref;
-        setReady(true);
-    };
-    var ref = useMemo(function () { return ({ current: localRef.current, set: set }); }, [isReady]);
+    var callbackRef = React.useRef(undefined);
+    var localRef = new CustomRef(null, function () { return setReady(true); });
     useObjectEffect(function () {
         if (callbackRef.current === null || !callback)
             return;
@@ -31,6 +40,5 @@ export var useRefReady = function (callback, deps) {
         callbackRef.current = null;
         return cb(localRef.current);
     }, __spreadArray([isReady], deps, true));
-    return [ref, set];
 };
 //# sourceMappingURL=index.js.map
