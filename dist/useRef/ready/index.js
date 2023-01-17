@@ -40,4 +40,5 @@ export var useRefReady = function (callback, deps) {
         callbackRef.current = null;
         return cb(localRef.current);
     }, __spreadArray([isReady], deps, true));
+    return localRef;
 };

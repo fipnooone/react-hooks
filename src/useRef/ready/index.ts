@@ -42,4 +42,6 @@ export const useRefReady = <T>(callback?: Callback<T>, deps = []) => {
 
         return cb(localRef.current);
     }, [isReady, ...deps]);
+
+    return localRef;
 };
