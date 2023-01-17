@@ -8,9 +8,11 @@ const stringify = (deps: unknown): string | unknown => {
     if (Array.isArray(deps)) return JSON.stringify(deps.map(stringify));
 
     return JSON.stringify(deps, (_, value) => {
+        if (typeof value !== 'object' || value === null) return value;
+
         if (seen.has(value) || Object.keys(value).length >= 20) return '[Circular]';
 
-        if (typeof value === 'object' && value !== null) seen.add(value);
+        seen.add(value);
 
         return value;
     });

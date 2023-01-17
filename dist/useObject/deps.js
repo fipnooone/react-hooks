@@ -5,10 +5,11 @@ var stringify = function (deps) {
     if (Array.isArray(deps))
         return JSON.stringify(deps.map(stringify));
     return JSON.stringify(deps, function (_, value) {
+        if (typeof value !== 'object' || value === null)
+            return value;
         if (seen.has(value) || Object.keys(value).length >= 20)
             return '[Circular]';
-        if (typeof value === 'object' && value !== null)
-            seen.add(value);
+        seen.add(value);
         return value;
     });
 };
