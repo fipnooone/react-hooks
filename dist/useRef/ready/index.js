@@ -15,6 +15,7 @@ var CustomRef = /** @class */ (function () {
         if (value === void 0) { value = null; }
         this.current = value;
         this.callback = callback;
+        this.set = this.set.bind(this);
         return this;
     }
     CustomRef.prototype.set = function (ref) {

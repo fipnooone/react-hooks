@@ -13,6 +13,8 @@ class CustomRef<T> implements RefObject<T> {
         this.current = value;
         this.callback = callback;
 
+        this.set = this.set.bind(this);
+
         return this;
     }
 
