@@ -1,4 +1,18 @@
-export { useEvents, useOutside } from './useCallback';
-export { useObjectCallback, useObjectEffect, useObjectMemo } from './useObject';
-export { useRefEffect, useRefReady } from './useRef';
-export { useCallbackState, usePromiseState, useTrustedPromise, useTrustedState } from './useState';
+import { useEvents, useOutside } from './useCallback';
+import { useObjectCallback, useObjectEffect, useObjectMemo } from './useObject';
+import { useRefEffect, useRefReady } from './useRef';
+import { useCallbackState, usePromiseState, useTrustedPromise, useTrustedState } from './useState';
+
+export {
+    useCallbackState,
+    useEvents,
+    useObjectCallback,
+    useObjectEffect,
+    useObjectMemo,
+    useOutside,
+    usePromiseState,
+    useRefEffect,
+    useRefReady,
+    useTrustedPromise,
+    useTrustedState,
+};

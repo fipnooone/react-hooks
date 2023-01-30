@@ -1,11 +1,11 @@
 import { DependencyList, RefObject } from 'react';
 
-import { useEvents } from '../events';
+import useEvents from '../events';
 import { Callback, UseOutside } from './types';
 
 const contains = (el: Element | undefined | null, target: Node) => (el ? el.contains(target) : false);
 
-export const useOutside: UseOutside = <T extends Element>(ref: RefObject<T> | RefObject<T>[], callback: Callback, deps?: DependencyList): void => {
+const useOutside: UseOutside = <T extends Element>(ref: RefObject<T> | RefObject<T>[], callback: Callback, deps?: DependencyList): void => {
     useEvents(
         'click',
         (event) => {
@@ -18,3 +18,5 @@ export const useOutside: UseOutside = <T extends Element>(ref: RefObject<T> | Re
         document
     );
 };
+
+export default useOutside;

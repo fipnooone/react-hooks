@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-export const useEvents = (type, callback, deps, element) => {
+const useEvents = (type, callback, deps, element) => {
     const handler = useRef(callback);
     useEffect(() => {
         if (!element)
@@ -10,3 +10,4 @@ export const useEvents = (type, callback, deps, element) => {
         };
     }, deps);
 };
+export default useEvents;

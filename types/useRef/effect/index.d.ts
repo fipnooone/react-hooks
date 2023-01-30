@@ -1,2 +1,3 @@
 import { UseRefEffect } from './types';
-export declare const useRefEffect: UseRefEffect;
+declare const useRefEffect: UseRefEffect;
+export default useRefEffect;

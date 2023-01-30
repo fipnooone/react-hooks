@@ -5,5 +5,5 @@ declare class CustomRef<T> implements RefObject<T> {
     constructor(value: T | null | undefined, callback: () => void);
     set(ref: T | null): void;
 }
-export declare const useRefReady: <T>(callback?: Callback<T> | undefined, deps?: never[]) => CustomRef<T>;
-export {};
+declare const useRefReady: <T>(callback?: Callback<T> | undefined, deps?: never[]) => CustomRef<T>;
+export default useRefReady;

@@ -1,4 +1,6 @@
 import { DependencyList } from 'react';
 
-export type Effect = () => void | (() => void);
-export type Hook = (effect: Effect, deps: DependencyList) => void;
+type Effect = () => void | (() => void);
+type Hook = (effect: Effect, deps: DependencyList) => void;
+
+export type { Effect, Hook };

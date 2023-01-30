@@ -2,7 +2,7 @@ import { DependencyList, useEffect, useRef } from 'react';
 
 import { EventCallback, UseEvents } from './types';
 
-export const useEvents: UseEvents = <T extends HTMLElement>(type: string, callback: EventCallback<object>, deps?: DependencyList, element?: T) => {
+const useEvents: UseEvents = <T extends HTMLElement>(type: string, callback: EventCallback<object>, deps?: DependencyList, element?: T) => {
     const handler = useRef(callback);
 
     useEffect(() => {
@@ -15,3 +15,5 @@ export const useEvents: UseEvents = <T extends HTMLElement>(type: string, callba
         };
     }, deps);
 };
+
+export default useEvents;

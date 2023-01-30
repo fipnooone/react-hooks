@@ -15,7 +15,7 @@ class CustomRef {
         this.callback();
     }
 }
-export const useRefReady = (callback, deps = []) => {
+const useRefReady = (callback, deps = []) => {
     const [isReady, setReady] = useState(false);
     const callbackRef = React.useRef(undefined);
     const localRef = new CustomRef(null, () => setReady(true));
@@ -31,3 +31,4 @@ export const useRefReady = (callback, deps = []) => {
     }, [isReady, ...deps]);
     return localRef;
 };
+export default useRefReady;

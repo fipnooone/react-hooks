@@ -14,4 +14,4 @@ const stringify = (deps) => {
     });
 };
 const transform = (deps) => deps.map(stringify);
-export { transform };
+export default transform;

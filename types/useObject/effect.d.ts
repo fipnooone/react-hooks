@@ -1,2 +1,3 @@
 import { Hook } from './types';
-export declare const useObjectEffect: Hook;
+declare const useObjectEffect: Hook;
+export default useObjectEffect;

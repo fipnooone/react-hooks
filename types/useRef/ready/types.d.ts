@@ -1,9 +1,10 @@
 import { Destructor } from '../../types';
-export type Callback<T> = (ref: T) => Destructor;
-export interface ISetRef<T> {
+type Callback<T> = (ref: T) => Destructor;
+interface ISetRef<T> {
     (ref: T): void;
 }
-export interface RefObject<T> {
+interface RefObject<T> {
     current: T | null;
     set: ISetRef<T | null>;
 }
+export type { Callback, ISetRef, RefObject };

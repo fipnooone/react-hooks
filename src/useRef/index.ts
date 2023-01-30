@@ -1,2 +1,4 @@
-export { useRefEffect } from './effect';
-export { useRefReady } from './ready';
+import useRefEffect from './effect';
+import useRefReady from './ready';
+
+export { useRefEffect, useRefReady };

@@ -20,4 +20,4 @@ const stringify = (deps: unknown): string | unknown => {
 
 const transform = (deps: DependencyList) => deps.map(stringify);
 
-export { transform };
+export default transform;

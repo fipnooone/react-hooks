@@ -27,7 +27,7 @@ class CustomRef<T> implements RefObject<T> {
     }
 }
 
-export const useRefReady = <T>(callback?: Callback<T>, deps = []) => {
+const useRefReady = <T>(callback?: Callback<T>, deps = []) => {
     const [isReady, setReady] = useState(false);
     const callbackRef = React.useRef<Callback<T> | null | undefined>(undefined);
     const localRef = new CustomRef<T>(null, () => setReady(true));
@@ -47,3 +47,5 @@ export const useRefReady = <T>(callback?: Callback<T>, deps = []) => {
 
     return localRef;
 };
+
+export default useRefReady;

@@ -1,2 +1,3 @@
 import { UseEvents } from './types';
-export declare const useEvents: UseEvents;
+declare const useEvents: UseEvents;
+export default useEvents;
