@@ -1,10 +1,10 @@
-var stringify = function (deps) {
-    var seen = new WeakSet();
+const stringify = (deps) => {
+    const seen = new WeakSet();
     if (deps === null || typeof deps !== 'object')
         return deps;
     if (Array.isArray(deps))
         return JSON.stringify(deps.map(stringify));
-    return JSON.stringify(deps, function (_, value) {
+    return JSON.stringify(deps, (_, value) => {
         if (typeof value !== 'object' || value === null)
             return value;
         if (seen.has(value) || Object.keys(value).length >= 20)
@@ -13,5 +13,5 @@ var stringify = function (deps) {
         return value;
     });
 };
-var transform = function (deps) { return deps.map(stringify); };
+const transform = (deps) => deps.map(stringify);
 export { transform };
