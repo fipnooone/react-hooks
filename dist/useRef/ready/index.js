@@ -1,34 +1,46 @@
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 import { useState } from 'react';
 import React from 'react';
 import { useObjectEffect } from '../../useObject';
-class CustomRef {
-    constructor(value = null, callback) {
+var CustomRef = /** @class */ (function () {
+    function CustomRef(value, callback) {
+        if (value === void 0) { value = null; }
         this.current = value;
         this.callback = callback;
         this.set = this.set.bind(this);
         return this;
     }
-    set(ref) {
+    CustomRef.prototype.set = function (ref) {
         if (ref === null || ref === undefined)
             return;
         this.current = ref;
         this.callback();
-    }
-}
-const useRefReady = (callback, deps = []) => {
-    const [isReady, setReady] = useState(false);
-    const callbackRef = React.useRef(undefined);
-    const localRef = new CustomRef(null, () => setReady(true));
-    useObjectEffect(() => {
+    };
+    return CustomRef;
+}());
+var useRefReady = function (callback, deps) {
+    if (deps === void 0) { deps = []; }
+    var _a = useState(false), isReady = _a[0], setReady = _a[1];
+    var callbackRef = React.useRef(undefined);
+    var localRef = new CustomRef(null, function () { return setReady(true); });
+    useObjectEffect(function () {
         if (callbackRef.current === null || !callback)
             return;
         callbackRef.current = callback;
         if (!isReady || localRef.current === null)
             return;
-        const cb = callbackRef.current;
+        var cb = callbackRef.current;
         callbackRef.current = null;
         return cb(localRef.current);
-    }, [isReady, ...deps]);
+    }, __spreadArray([isReady], deps, true));
     return localRef;
 };
 export default useRefReady;

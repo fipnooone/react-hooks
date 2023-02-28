@@ -1,12 +1,12 @@
 import useEvents from '../events';
-const contains = (el, target) => (el ? el.contains(target) : false);
-const useOutside = (ref, callback, deps) => {
-    useEvents('click', (event) => {
-        const target = event.target;
+var contains = function (el, target) { return (el ? el.contains(target) : false); };
+var useOutside = function (ref, callback, deps) {
+    useEvents('click', function (event) {
+        var target = event.target;
         if (!Array.isArray(ref))
             !contains(ref.current, target) && callback();
         else
-            ref.every((r) => !contains(r.current, target)) && callback();
+            ref.every(function (r) { return !contains(r.current, target); }) && callback();
     }, deps, document);
 };
 export default useOutside;

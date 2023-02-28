@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react';
-const useEvents = (type, callback, deps, element) => {
-    const handler = useRef(callback);
-    useEffect(() => {
+var useEvents = function (type, callback, deps, element) {
+    var handler = useRef(callback);
+    useEffect(function () {
         if (!element)
             return;
         element.addEventListener(type, handler.current);
-        return () => {
+        return function () {
             return element.removeEventListener(type, handler.current);
         };
     }, deps);
