@@ -1,3 +1,5 @@
+# Moved to: https://github.com/cyberia-studio/react-hooks
+
 # React Hooks
 
 ## Usage
